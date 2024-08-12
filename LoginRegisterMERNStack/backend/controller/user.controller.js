@@ -4,7 +4,16 @@ import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 export const register = async (req, res, next) => {
-  const { email, password, confirmPassword } = req.body;
+  const {
+    firstName,
+    lastName,
+    birthday,
+    gender,
+    email,
+    phoneNumber,
+    password,
+    confirmPassword,
+  } = req.body;
 
   if (password !== confirmPassword) {
     return next(errorHandler(400, "Passwords do not match"));
@@ -18,8 +27,14 @@ export const register = async (req, res, next) => {
 
   const hashedPassword = bcryptjs.hashSync(password, 10);
   const newUser = new User({
+    firstName,
+    lastName,
+    birthday,
+    gender,
     email,
+    phoneNumber,
     password: hashedPassword,
+    confirmPassword,
   });
   try {
     await newUser.save();

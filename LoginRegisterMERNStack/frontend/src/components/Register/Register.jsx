@@ -83,12 +83,12 @@ const RegistrationForm = () => {
         "http://localhost:5000/api/auth/register",
         {
           firstName: formData.firstName,
-        lastName: formData.lastName,
+          lastName: formData.lastName,
           birthday: formData.birthday,
           gender: formData.gender,
-        email: formData.email,
+          email: formData.email,
           phoneNumber: formData.phoneNumber,
-        password: formData.password,
+          password: formData.password,
           confirmPassword: formData.confirmPassword,
         },
         { withCredentials: true }

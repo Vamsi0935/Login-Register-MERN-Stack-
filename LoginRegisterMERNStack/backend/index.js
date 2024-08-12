@@ -14,7 +14,7 @@ mongoose
   })
   .catch((err) => {
     console.error(err);
-  });
+  }); 
 
 //to make input as json
 app.use(express.json());
